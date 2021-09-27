@@ -1,0 +1,32 @@
+package conexaoteste;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.DriverManager;
+/**
+ *
+ * @author piazera
+ */
+public class ConexaoTeste 
+{
+    
+    public static Connection getConexao()
+    {
+        Connection conn = null;
+        try
+        {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sabetudo","root","virtual");
+            System.out.println("Conectado com sucesso!");
+        }catch(SQLException e)
+        {
+            System.err.println("Erro ao conectar!");
+        }
+        return conn;
+    }
+
+
+    public static void main(String[] args) {
+        ConexaoTeste.getConexao();
+    }
+    
+}
